@@ -10,7 +10,9 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    # 💡 ВИПРАВЛЕНО: Запускаємо на Windows, щоб збігатися
+    # з вашими локальними -win32.png знімками
+    runs-on: windows-latest
 
     steps:
     - name: Checkout code
@@ -27,9 +29,7 @@ jobs:
     - name: Install Playwright Browsers
       run: node node_modules/playwright/cli.js install --with-deps
 
-    # 💡 Цей крок вирішив попередню проблему. Залиште його.
-    - name: Set execute permission for http-server
-      run: chmod +x node_modules/.bin/http-server
+    # Крок 'chmod' видалено, він не потрібен для Windows
 
     - name: Run tests
       run: node node_modules/playwright/cli.js test tests/

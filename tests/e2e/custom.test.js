@@ -1,9 +1,11 @@
 const { test, expect } = require('@playwright/test');
 
-// Тест 1: Перевірка заголовка сторінки "Про нас"
-test('Перевірка заголовка сторінки "Про нас"', async ({ page }) => {
+// Тест 1: Скріншот всієї сторінки
+test('Скріншот всієї сторінки "Про нас"', async ({ page }) => {
   await page.goto('/about.html');
-  await expect(page).toHaveTitle(/Змінено/);
+  expect(await page.screenshot()).toMatchSnapshot('screenshots/custom/about-page.png', { 
+    threshold: 0.2 
+  });
 });
 
 // Тест 2: Перевірка наявності основного заголовка H1
@@ -19,3 +21,4 @@ test('Перевірка посилання на головну сторінку
   await page.click('#homeLink');
   await expect(page).toHaveURL('http://localhost:3000/');
 });
+

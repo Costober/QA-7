@@ -27,5 +27,11 @@ jobs:
     - name: Install Playwright Browsers
       run: node node_modules/playwright/cli.js install --with-deps
 
+    # 💡 ОСЬ ТУТ ВИПРАВЛЕННЯ:
+    # Ми додаємо дозвіл на виконання (+x) для скрипта http-server,
+    # який знаходиться в папці node_modules/.bin
+    - name: Set execute permission for http-server
+      run: chmod +x node_modules/.bin/http-server
+
     - name: Run tests
       run: node node_modules/playwright/cli.js test tests/

@@ -34,13 +34,12 @@ module.exports = defineConfig({
     },
     {
       name: 'Mobile Safari',
-      use: { ...devices['iPhone 13'] }, // Використовуємо iPhone 13, як у вашому файлі
+      use: { ...devices['iPhone 13'] }, 
     }
 
   ],
   // Run your local dev server before starting the tests.
   webServer: {
-    // 💡 Ця команда вже правильна
     command: 'npx http-server -p 3000 public',
     url: 'http://localhost:3000',
     reuseExistingServer: !process.env.CI,

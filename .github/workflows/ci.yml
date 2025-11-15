@@ -28,4 +28,4 @@ jobs:
       run: node node_modules/playwright/cli.js install --with-deps
 
     - name: Run tests
-      run: npx playwright test tests/
+      run: node node_modules/playwright/cli.js test tests/

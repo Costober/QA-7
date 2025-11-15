@@ -40,7 +40,7 @@ module.exports = defineConfig({
   ],
   // Run your local dev server before starting the tests.
   webServer: {
-    command: 'npm run start', // Використовуємо вашу команду
+    command: 'npx npm run start', // <--- ОСЬ ТУТ ВИПРАВЛЕННЯ
     url: 'http://localhost:3000',
     reuseExistingServer: !process.env.CI,
   },
